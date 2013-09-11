@@ -1,0 +1,928 @@
+/*----- Mixins -----*/
+@mixin links($top) {
+    padding-left:40px;
+    line-height: 3;
+    width: 100px;
+    position: absolute;
+    top:$top;
+    left:-20px;
+    width:285px;
+    height:45px;
+    z-index: 999999;
+    color:$gray;
+    &:hover{
+      color: #FFF;
+      cursor: pointer;
+      background-image:url(../images/active.png);
+    }
+  }
+  @mixin back($height,$position){
+    position:$position;
+    height: $height;
+    background-color: #f0f0f0;
+    border: 1px solid #e8e8e8;
+    -webkit-box-shadow: inset 0 0 5px #FFF;
+       -moz-box-shadow: inset 0 0 5px #FFF;
+            box-shadow: inset 0 0 5px #FFF;
+  }
+  @mixin link1{
+    padding-left:40px;
+    line-height: 3;
+    width: 100px;
+    position: absolute;
+    top:120px;
+    left:-20px;
+    width:285px;
+    height:45px;
+    z-index: 999999;
+    color:#FFF;
+    background-image:url(../images/active.png);
+  }
+
+ /*----- Variables -----*/ 
+$gray: #838382;
+$lite-gray: #4b4d4a;
+$orange: #d05706;
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+@font-face {
+    font-family: 'FertigoProRegular';
+    src: url('../fonts/Fertigo_PRO-webfont.eot');
+    src: url('../fonts/Fertigo_PRO-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Fertigo_PRO-webfont.woff') format('woff'),
+         url('../fonts/Fertigo_PRO-webfont.ttf') format('truetype'),
+         url('../fonts/Fertigo_PRO-webfont.svg#FertigoProRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* #######################################################################
+  Global CSS START
+####################################################################### */
+*{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  // -ms-box-sizing: border-box;
+}
+body{
+  background-color: #FFF;
+}
+a{
+  color: $gray;
+  text-decoration: none;
+}
+.top-pad{
+  padding-top: 20px;
+}
+.top-margin{
+  margin-top: 20px;
+}
+
+.overhide{
+  overflow: hidden;
+}
+
+.orange{
+  color: $orange;
+}
+
+/* #######################
+  Top Header CSS START
+####################### */
+
+.container{
+  padding:10px;
+  max-width: 960px;
+  margin:0 auto;
+  overflow: hidden;
+}
+.heading{
+  position: relative;
+}
+.logo{
+  width: 165px;
+  height: 46px;
+  float: left;
+  clear: left;
+}
+.title{
+  width: 40%;
+  float: left;
+  clear: all;
+  h1{
+    font-family: 'FertigoProRegular', Arial, sans-serif;
+    color: #FFF;
+    line-height: 1.6;
+    text-shadow:
+     -1px -1px 0 #C0C0C0,  
+      1px -1px 0 #C0C0C0,
+      -1px 1px 0 #C0C0C0,
+       1px 1px 0 #C0C0C0;
+    margin:0;
+    padding: 0;
+  }   
+}
+.search{
+  float: right;
+  clear: all;
+  width: 20%;
+  height: 28px;
+  background: url(../images/search.png) right no-repeat;
+}
+
+.navigation{
+  padding-left:0;
+  margin:0;
+  margin-top: 15px;
+  width: 70%;
+  float: left;
+  ul{ 
+    padding:0;
+    li{
+    width: 67px;
+    margin-top: 5px;
+    text-align: left;
+    display: inline;
+    list-style: none;
+    padding: 5px 10px;
+      // &:first-child{
+      //   padding:10px 10px 0 0;
+      //   text-align: center;
+      // }
+      &:hover{
+        border: 1px solid #d89801;
+        border-radius: 5px;
+        background-image: -ms-linear-gradient(top left, #FDEF84 0%, #F7B03B 60%);
+        background-image: -moz-linear-gradient(top left, #FDEF84 0%, #F7B03B 60%);
+        background-image: -o-linear-gradient(top left, #FDEF84 0%, #F7B03B 60%);
+        background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #FDEF84), color-stop(.6, #F7B03B));
+        background-image: -webkit-linear-gradient(top left, #FDEF84 0%, #F7B03B 60%);
+        background-image: linear-gradient(to bottom right, #FDEF84 0%, #F7B03B 60%);
+        -moz-box-shadow:    inset 0 0 5px #FFF;
+        -webkit-box-shadow: inset 0 0 5px #FFF;
+        box-shadow:         inset 0 0 5px #FFF;
+      }   
+    }
+  }
+}  
+.signup{
+  width: 17%;
+  float: right;
+  clear: right;
+  margin-top: 25px;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+.login{
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: $gray;
+  line-height: 2.2;
+}
+.signup-button{
+  color: #FFF;
+  width: 85px;
+  height: 28px;
+  text-align: center;
+  line-height: 1.8;
+  float: right;
+    background-image: url(../images/signup.png);
+    &:hover{
+      background-image: url(../images/signup_hover.png);
+      cursor: pointer;
+    }
+}
+/* ################################
+  Home Middle CSS START
+#################################*/
+
+/* ##################
+  Mid Top CSS START
+###################*/
+.middle-top{
+  background: url(../images/blue_back.jpg) center no-repeat;
+  min-height: 417px;
+  -moz-box-shadow:    inset 0  8px 8px -8px #000, inset 0 -8px 8px -8px #000;
+  -webkit-box-shadow: inset 0  8px 8px -8px #000, inset 0 -8px 8px -8px #000;
+   box-shadow:        inset 0  8px 8px -8px #000, inset 0 -8px 8px -8px #000;
+}
+
+.mid-left{
+  width: 50%;
+  float: left;
+  clear: all;
+  h1{
+    font-weight: normal;
+    color:#FFF;
+    font-size:45px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    margin:0;
+  }
+  h3{
+    margin:0;
+    color:#f1f1f1;
+    font-weight: normal;
+  }
+  h5{
+    margin:0;
+    color:#FFF;
+  }
+  small{
+    color: #FFF;
+  }
+}
+.mid-right{
+  width: 50%;
+  float: left;
+  clear: all;
+}
+.mid-buttons{
+  width: 100%;
+  margin-top: 40px;
+  text-transform: uppercase;
+}
+.quote{
+  float: left;
+  text-indent: 30px;
+  line-height: 3;
+  width: 175px;
+  height: 44px;
+  color: #595757;
+  background:url(../images/quote.png) center no-repeat;
+  &:hover{
+    background:url(../images/quote_hover.png) center no-repeat;
+    cursor: pointer;
+  }
+}
+.port{
+  float: left;
+  text-indent: 20px;
+  line-height: 3;
+  margin-left: 10px;
+  width: 175px;
+  height: 44px;
+  color: #FFF;
+  background:url(../images/portfolio.png) center no-repeat;
+  &:hover{
+    background:url(../images/portfolio_hover.png) center no-repeat;
+    cursor: pointer;
+  }
+}
+/* ################################
+  Fat Footer CSS START
+#################################*/
+.bottom{
+  min-height: 200px;
+  margin-top:30px;
+  background: url(../images/bottom_back.jpg) $lite-gray center top no-repeat; 
+  .column{
+    width: 25%;
+    padding: 0 10px;
+    float: left;
+    img{
+      max-width: 100%;
+    }
+  }
+  h3{
+    margin-top: 10px;
+    font: 500 20px  'Open Sans Condensed', sans-serif;
+    color:#FFF;
+    border-bottom: 1px solid #FFF;
+  }
+  .blog-row{
+    .date{
+      width: 25%;
+      height: 17px;
+      float: left;
+      background: url(../images/blog_date.png) top left no-repeat;
+      font: bold 12px Arial, sans-serif;
+      color:#FFF;
+      padding-left:3px;
+    }
+    h5{
+        color:#FFF;
+        margin-bottom:0px;
+      }
+    p{
+      margin-bottom:5px;
+      padding-top: 0px;
+      font-weight: normal;
+      font-size: 12px;
+      color: #FFF;
+    }
+  }
+  .comments-row{
+    padding-left:30px;
+    background: url(../images/comments_icon.png) top left no-repeat;
+    color:#FFF;
+    .name{
+      font: bold 14px Arial, sans-serif;
+      color:#FFF;
+      }
+    p{
+      margin: 10px 0;
+      padding:0;
+      font-weight: normal;
+      font-size: 12px;
+      color: #FFF;
+    }
+
+  }
+  .first{
+      margin-bottom: 30px;
+  }
+  .tweet{
+    background:url(../images/tweet_back.png);
+    height: 152px;
+    width: 220px;
+    padding:10px;
+    font-style: italic;
+    h4{
+      font-size:14px;
+      color: $orange;
+      margin: 0;
+    }
+  }
+  .follow{
+    // margin-top: 10px;
+    background:url(../images/twitter.jpg) bottom right no-repeat;
+    height: 66px;
+    width: 220px;
+    a{
+      color:#FFF;
+      text-decoration: underline;
+      font-style: italic;
+      &:hover{
+        color:#181818;
+        text-decoration: none;
+      }
+    }
+  }
+}
+/* ################################
+  Small Footer CSS START
+#################################*/
+
+footer{
+  background-color: #dcdcda;
+  .container{
+    padding:0;
+  }
+  .navigation{
+    width: 50%;
+    float: right;
+    margin:0;
+    padding:0;
+  }
+  .copy{
+    color: $gray;
+    margin-top: 18px;
+    width: 50%;
+    float: left;
+    .foot-title{
+      font: bold 18px Arial black, sans-serif;
+    }
+  }
+  small{
+    padding-left: 20px;
+    font-size: 10px;
+  }
+  a{
+    font-size: 11px;
+  }
+}
+
+/* ##############################
+  index.html Specific  CSS START
+###############################*/
+.top {
+  background: url(../images/head.jpg) #e4e4e3 no-repeat top center;
+  height: 134px;
+}
+.middle-bottom{
+  padding-top:48px;
+  min-height: 575px;
+  background: url(../images/mid-bot.jpg) #FFF center top no-repeat;
+}
+.tabs-container{
+  height: 70px;
+  background: url(../images/tabs.png) center no-repeat;
+  overflow: hidden;
+  .container{
+    max-width: 940px;
+    max-height: 69px;
+    overflow: hidden;
+    padding: 0;
+  }
+}
+.design{
+  width: 230px;
+  float: left;
+  border-radius: 10px 0 0 0;
+  margin: 1px 0 0 1px;
+  &:hover{
+    background:url(../images/design_hover.jpg) top center no-repeat;
+    cursor: pointer;
+  }
+}
+.marketing{
+  width: 239px;
+  float: left;
+  margin: 1px 0 0 1px;
+  &:hover{
+    background:url(../images/marketing_hover.jpg) top center no-repeat;
+    cursor: pointer;
+  }
+}
+.consulting{
+ @extend .marketing;
+}
+.support{
+  width: 227px;
+  float: left;
+  margin: 1px 0 0 1px;
+  border-radius: 0 10px 0 0;
+  &:hover{
+    background:url(../images/support_hover.jpg) top center no-repeat;
+    cursor: pointer;
+  }
+}
+
+.featured{
+  width: 50%;
+  float: left;
+  margin-top: 40px;
+  .freelance{
+    color:#227ab0;
+    font-style: italic;
+    text-indent: 10px;
+  }
+}
+.design_info{
+  @extend .featured;
+  h1{
+    color: #227ab0;
+    margin: 10px 0 10px 0;
+  }
+  h3{
+    margin:0;
+    color: $gray;
+    font-size: 20px;
+    font-weight: normal;
+  }
+  h5{
+    float: left;
+    margin: 0;
+    color: $gray;
+    font-weight: normal;
+  }
+}
+.skills1{
+  width: 50%;
+  float: left;
+  clear: all;
+  color: $gray;
+  ul{
+    list-style-image: url('../images/check.png');
+  }
+  li{
+    text-indent:10px;
+    padding: 5px; 
+  }
+}
+.skills2{
+  @extend .skills1;
+}
+.testimonial{
+  float: left;
+  height: 227px;
+  width: 940px;
+  padding: 0;
+  margin-top: 40px;
+}
+
+/* ##############################
+  about.html Specific  CSS START
+###############################*/
+.top {
+  background: url(../images/sub_head.jpg) #e4e4e3 no-repeat top center;
+  height: 134px;
+}
+.middle{
+  padding-top: 40px;
+  background:url(../images/sub_back.jpg) #FFF top center no-repeat;
+}
+.sub-mid{
+  // margin-top: 40px;
+  background:url(../images/middle_back.jpg) top center no-repeat;
+  padding:20px;
+}
+.sub-mid-left{
+  float: left;
+  width: 25%;
+  h3{
+    font-size: 16px;
+    color: $lite-gray;
+  }
+  h6{
+    font-weight: normal;
+    margin: 0;
+  }
+  .skills{
+    width: 100%;
+    color: $gray;
+    ul{
+      list-style-image: url('../images/check.png');
+    }
+    li{
+      text-indent:10px;
+      padding: 5px; 
+    }
+  }
+}
+.about-links{
+  @include back(400px,relative);
+  h3{
+    font:normal 28px "Arial Narrow", Arial, sans-serif ;
+    margin: 5px 0 10px 0;
+    color: $gray;
+    text-align: center;
+  }
+  h1{
+    margin-top: 5px;
+    text-align: center;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: $orange;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+  }
+  .link1{
+    @include link1;
+  }
+  .link2{
+    @include links(175px);
+  }
+  .link3{
+    @include links(225px);
+  }
+  .link4{
+    @include links(275px);
+  }
+  .link5{
+    @include links(325px);
+  }
+}
+
+.blog-links{
+  @include back(450px,relative);
+  h1{
+    font-family: "Arial Narrow", Arial, sans-serif;
+    font-weight: normal;
+    margin-top: 50px;
+    text-align: center;
+    color: $gray;
+  }
+
+  .link1{
+    @include link1;
+  }
+  .link2{
+    @include links(175px);
+  }
+  .link3{
+    @include links(225px);
+  }
+  .link4{
+    @include links(275px);
+  }
+  .link5{
+    @include links(325px);
+  }
+  .link6{
+    @include links(375px);
+  }
+}
+.sub-mid-right{
+  width: 65%;
+  margin-left:10%;
+  float: left;
+  h1{
+    font-size: 26px;
+    color: $lite-gray;
+    margin: 0 0 10px 0;
+  }
+  h2{
+    margin: 10px 0 0 0;
+    color: #7d807c;
+    font-weight: normal;
+  }
+  h3{
+    color: $orange;
+  }
+  h6{
+    color: $lite-gray;
+    margin: 0 0 40px 0;
+  }
+  p{
+    // font-size: 14px;
+    color: $lite-gray;
+  }
+}
+article{
+  border-bottom: solid 1px #C0C0C0;
+  &:last-child{
+    border-bottom:none;
+  }
+}
+
+/* #################################
+  pricing.html Specific  CSS START
+##################################*/
+
+.pricing-middle{
+  width: 97%;
+  margin-left:3%; 
+  .head-info{
+    width: 75%;
+    float: left;
+  }
+  .cards{
+    width: 25%;
+    float: left;
+    margin-top: 30px;
+  }
+  h1{
+    font-size: 26px;
+    color: $lite-gray;
+    margin: 0 0 10px 0;
+  }
+  h2{
+    margin: 10px 0 0 0;
+    color: #7d807c;
+    font-weight: normal;
+  }
+  h3{
+    margin: 0;
+    font-weight: normal;
+    color: $gray;
+  }
+  h5{
+    margin:0 0 10px 0;
+  }
+  h6{
+    margin: 0;
+    font-weight: normal;
+    color: $lite-gray;
+    margin: 0 0 40px 0;
+  }
+  p{
+    // font-size: 14px;
+    color: $lite-gray;
+  }
+  .prices{
+    float: left;
+    width: 97%;
+    @include back(460px, relative);
+    z-index: 9999999;
+    .active-button{
+    position: absolute;
+    top:30px;
+    left:220px;;
+    z-index: -9999;
+    width:190px;
+    height:46px;
+    background: url(../images/pricing_active.png) center top;
+    margin-bottom: 50px;
+    }
+    
+    h1{
+    z-index: 999;
+    font-size: 26px;
+    color: $lite-gray;
+    margin: 0;
+    }
+    .active{
+      color: white;
+      margin-bottom: 35px;
+    }
+    h2{
+      margin: 10px 0 0 0;
+      color: #7d807c;
+      font-weight: normal;
+    }
+    h3{
+      margin: 0;
+      font-weight: normal;
+      color: $gray;
+    }
+    h5{
+      margin: 0;
+      font-weight: normal;
+      color: $lite-gray;
+      margin: 0 0 20px 0;
+    }
+    h6{
+      margin: 0;
+      font-weight: normal;
+      color: $gray;
+      margin: 0 0 10px 0;
+    }
+    .price{
+      color: $orange;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .buy{
+      width: 110px;
+      height: 40px;
+      background-image: url(../images/buy_now.png);
+      &:hover{
+        cursor: pointer;
+        background-image: url(../images/buy_now_hover.png);
+      }
+    }
+  }
+  .column{
+    width: 25%;
+    height: 420px;
+    float: left;
+    margin:20px 0 0 0;
+    padding: 20px;
+    border-right: 1px solid #C0C0C0;
+    &:last-child{
+      border-right: none;
+    }
+  }
+  .skills{
+    width: 100%;
+    color: $gray;
+    ul{
+      margin-left:0;
+      padding-left:20px;
+      list-style-image: url('../images/check.png');
+    }
+    li{
+      font-size:14px;
+      // text-indent:10px;
+      padding: 5px; 
+    }
+    .x{
+      list-style-image: url('../images/x.png');
+    }
+  }
+}
+/* ###################################
+  portfolio.html Specific  CSS START
+####################################*/
+.portfolio{
+  h3{
+    font:normal 28px "Arial Narrow", Arial, sans-serif ;
+    margin: 50px 0 10px 0;
+    color: $gray;
+    text-align: center;
+  }
+}
+.port-mid{
+    h2{
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: $gray;
+    }
+    h6{
+      font-size: 12px;
+      font-weight: normal;
+      margin-bottom: 10px;
+    }
+    p{
+      font-size: 14px;
+    }
+  .main{
+    overflow: hidden;
+    padding: 10px;
+    @include back(100%, relative);
+
+  }
+  .secondary{
+    overflow: hidden;
+    padding: 10px;
+    height: 100%;
+    margin-top: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #e8e8e8;
+    -webkit-box-shadow: inset 0 0 5px #FFF;
+       -moz-box-shadow: inset 0 0 5px #FFF;
+            box-shadow: inset 0 0 5px #FFF;
+    .left{
+      width:15%;
+      float: left;
+    }
+    .right{
+      padding-left:50px;
+      width: 85%;
+      float: left;
+      h2{
+        margin-top:0;
+      }
+    }
+  }
+
+  .main-img{
+    width: 53%;
+    float: left;
+  }
+  .main-info{
+    padding:0 10px 0 10px;
+    width: 47%;
+    float: left;
+  }
+  
+}
+.side-bottom{
+  color: $lite-gray;
+  padding: 0px 20px 0 20px;
+}
+/* ###################################
+  contact.html Specific  CSS START
+####################################*/
+.contact{
+  padding:0 20px 0 20px;
+  h5{
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+    color: $lite-gray;
+    font-size: 14px;
+  }
+  h6{
+    font-size: 12px;
+    font-weight:bold;
+  }
+}
+.conact-mid{
+  h2{
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: $gray;
+  }
+  h6{
+    font-size: 12px;
+    font-weight: normal;
+    margin-bottom: 10px;
+  }
+
+  p{
+    font-size: 14px;
+  }
+
+}
+::-webkit-input-placeholder{
+  color:#000; 
+  font-size: 12px;
+  font-style: italic;
+}
+::-moz-placeholder{
+  color:#000;
+}
+:-ms-input-placeholder{
+  color:#000;
+}
+input:-moz-placeholder{ 
+  color:#000;
+}
+
+textarea:-moz-placeholder{ 
+  color:#000;
+}
+input{
+    background-color: #f5f5f4;
+    border: 1px solid #C0C0C0;
+    padding:5px;
+    
+  }
+textarea{
+  background-color: #f5f5f4;
+  border: 1px solid #C0C0C0;
+  padding:5px;
+}
+
+.continput{
+    margin: 10px 0 10px 0;
+  }
+  h5{
+    color: #1e96a0;
+    &:hover{
+      color: #808080;
+      cursor: pointer;
+    }
+  }
+.google-left{
+  width: 65%;
+  float: left;
+}
+.google-right{
+  margin: 60px 0 0 20px;
+  width: 30%;
+  float: left;
+}
